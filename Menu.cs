@@ -31,26 +31,51 @@ namespace Slot_machine
                         case 1:
                             {
                                 Bank Bank = new Bank();
+                                Bet Bet = new Bet();
+                                Menu Menu = new Menu();
+
                                 Bank.Bank_replenishment();
+                                Bank.Print_bank();
+                                Bet.Print_bet();
+                                Menu.PrintMenu();
                             }
                             break;
                         case 2:
                             {
                                 Bet Bet = new Bet();
+                                Bank Bank = new Bank();
+                                Menu Menu = new Menu();
+
                                 Bet.Make_a_bet_first();
+                                Bank.Print_bank();
                                 Bet.Print_bet();
+                                Menu.PrintMenu();
+
                             }
                             break;
                         case 3:
                             {
+
                                 Game Game = new Game();
                                 Bank Bank = new Bank();
                                 Bet Bet = new Bet();
+                                Menu Menu = new Menu();
 
-                                Game.Roll();
-                                Game.Combination();
-                                Bank.Print_bank();
-                                Bet.Print_bet();
+                                if (Bet.bet != 0)
+                                {
+                                    Game.Roll();
+                                    Game.Combination();
+                                    Bank.Print_bank();
+                                    Bet.Print_bet();
+                                    Menu.PrintMenu();
+                                }
+                                else if (Bet.bet == 0)
+                                {
+                                    Console.WriteLine();
+                                    Console.WriteLine("Сделайте ставку!");
+                                    Menu.PrintMenu();
+                                }
+                                
                             }
                             break;
                         case 0:
@@ -62,11 +87,16 @@ namespace Slot_machine
                 }
                 else
                 {
+                    Menu Menu = new Menu();
+
+                    Console.WriteLine();
                     Console.WriteLine("Ошибка! Выбранного пункта меню не существует! Выберите другой пункт.");
+                    Menu.PrintMenu();
                 }
 
             } while (!Exit);
 
+            Console.WriteLine();
             Console.WriteLine("Игра закончена!");    
         }
     }

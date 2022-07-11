@@ -10,8 +10,9 @@ namespace Slot_machine
 
         public void Bank_replenishment()
         {
-            Console.WriteLine("Введите сумму, которую вы хотите внести в банк");
-            bank = uint.Parse(Console.ReadLine());
+            Console.WriteLine();
+            Console.WriteLine("Введите сумму, которую вы хотите внести в банк");            
+            bank += uint.Parse(Console.ReadLine());
             Console.WriteLine();
         } 
         

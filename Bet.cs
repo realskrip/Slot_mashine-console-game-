@@ -11,6 +11,7 @@ namespace Slot_machine
 
         public void Make_a_bet_first()
         {
+            Console.WriteLine();
             Console.WriteLine("Какую ставку вы хотите сделать?");
             Console.WriteLine
                 ("1. 100\n" +
@@ -26,36 +27,77 @@ namespace Slot_machine
             {
                 case 1:
                     {
-                        Bank.bank -= 100;
-                        bet += 100;
+                        if (Bank.bank >= 100)
+                        {
+                            Bank.bank -= 100;
+                            bet += 100;
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Недостаточно средств! Пополните банк.");
+                        }
                     }
                     break;
                 case 2:
                     {
-                        Bank.bank -= 200;
-                        bet += 200;
+                        if (Bank.bank >= 200)
+                        {
+                            Bank.bank -= 200;
+                            bet += 200;
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Недостаточно средств! Пополните банк.");
+                        }
                     }
                     break;
                 case 3:
                     {
-                        Bank.bank -= 500;
-                        bet += 500;
+                        if (Bank.bank >= 500)
+                        {
+                            Bank.bank -= 500;
+                            bet += 500;
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Недостаточно средств! Пополните банк.");
+                        }
                     }
                     break;
                 case 4:
                     {
-                        Bank.bank -= 1000;
-                        bet += 1000;
+                        if (Bank.bank >= 1000)
+                        {
+                            Bank.bank -= 1000;
+                            bet += 1000;
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Недостаточно средств! Пополните банк.");
+                        }
                     }
                     break;
                 case 5:
                     {
-                        Bank.bank -= 2000;
-                        bet += 2000;
+                        if (Bank.bank >= 2000)
+                        {
+                            Bank.bank -= 2000;
+                            bet += 2000;
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Недостаточно средств! Пополните банк.");
+                        }
                     }
                     break;
                 default:
-                    Console.WriteLine("Попробуйте ещё раз!");
+                    Console.WriteLine();
+                    Console.WriteLine("Можно делать только фиксированную ставку! Выберите ставку из списка.");
                     break;
             }
         }

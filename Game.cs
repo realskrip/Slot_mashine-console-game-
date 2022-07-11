@@ -23,7 +23,8 @@ namespace Slot_machine
             char randomSymbol3 = mySymbol[rnd.Next(0, mySymbol.Length)];
             thirdRandom = randomSymbol3;
 
-            Console.WriteLine($"{firstRandom}{secondRandom}{thirdRandom}");
+            Console.WriteLine();
+            Console.WriteLine($"Табло: {firstRandom}{secondRandom}{thirdRandom}");
         }
 
         public void Combination()
@@ -32,54 +33,61 @@ namespace Slot_machine
             {
                 if (firstRandom == '$')
                 {
-                    Bet.bet *= 10;
-                    Bank.bank += Bet.bet;
+                    Bank.bank += Bet.bet * 10;
+                    Bank.bank -= Bet.bet;
                 }
                 else if (firstRandom == '2')
                 {
-                    Bet.bet *= 2;
-                    Bank.bank += Bet.bet;
+                    Bank.bank += Bet.bet * 2;
+                    Bank.bank -= Bet.bet;
                 }
                 else if (firstRandom == '3')
                 {
-                    Bet.bet *= 3;
-                    Bank.bank += Bet.bet;
+                    Bank.bank += Bet.bet * 3;
+                    Bank.bank -= Bet.bet;
                 }
                 else if (firstRandom == '4')
                 {
-                    Bet.bet *= 4;
-                    Bank.bank += Bet.bet;
+                    Bank.bank += Bet.bet * 4;
+                    Bank.bank -= Bet.bet;
                 }
                 else if (firstRandom == '5')
                 {
-                    Bet.bet *= 5;
-                    Bank.bank += Bet.bet;
+                    Bank.bank += Bet.bet * 5;
+                    Bank.bank -= Bet.bet;
                 }
                 else if (firstRandom == '6')
                 {
-                    Bet.bet *= 6;
-                    Bank.bank += Bet.bet;
+                    Bank.bank += Bet.bet * 6;
+                    Bank.bank -= Bet.bet;
                 }
                 else if (firstRandom == '7')
                 {
-                    Bet.bet *= 7;
-                    Bank.bank += Bet.bet;
+                    Bank.bank += Bet.bet * 7;
+                    Bank.bank -= Bet.bet;
                 }
                 else if (firstRandom == '8')
                 {
-                    Bet.bet *= 8;
-                    Bank.bank += Bet.bet;
+                    Bank.bank += Bet.bet * 8;
+                    Bank.bank -= Bet.bet;
                 }
                 else if (firstRandom == '9')
                 {
-                    Bet.bet *= 9;
-                    Bank.bank += Bet.bet;
+                    Bank.bank += Bet.bet * 9;
+                    Bank.bank -= Bet.bet;
                 }
 
             }
             else
             {
-                Bank.bank -= Bet.bet;
+                if (Bank.bank == 0 || Bank.bank < Bet.bet)
+                {
+                    Bet.bet = 0;
+                }
+                else
+                {
+                    Bank.bank -= Bet.bet;
+                }
             }
         }
     }
